@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖Site especial💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #ff69b4;
+            font-size: 250%;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .centered-image {
+            display: block;
+            margin: 0 auto 30px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .intro-text {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            flex-grow: 1;
+            text-align: center;
+            min-width: 80px;
+            transition: all 0.3s;
+        }
+        
+        .timeline-button:hover {
+            background-color: #ff69b4;
+            color: #fff;
+        }
+        
+        .popup {
+            display: none;
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        
+        .popup-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .popup-image {
+            width: 50%;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        
+        .popup-text {
+            width: 50%;
+        }
+        
+        /* Quiz */
+        .quiz-container {
+            background-color: #fff;
+            color: #000;
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .quiz-button {
+            background-color: #f0f0f0;
+            color: #000;
+            border: none;
+            padding: 15px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        
+        .quiz-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .wrong {
+            background-color: #ff6b6b !important;
+            color: #fff;
+        }
+        
+        .correct {
+            background-color: #6bff6b !important;
+            color: #000;
+        }
+        
+        .next-button {
+            display: none;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            float: right;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .quiz-result {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        
+        /* Footer */
+        .footer {
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .separator {
+            height: 1px;
+            background-color: #fff;
+            margin: 30px auto;
+            width: 80%;
+        }
+        
+        .contact-form {
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .submit-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* Easter egg */
+        .hidden-number {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            color: #000;
+            user-select: none;
+        }
+        
+        .hidden-number:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Meu presente de dias dos namorados</h1>
+        
+        <img src="Intro.jpg" alt="Nossa foto" class="centered-image">
+        
+        <div class="intro-text">
+            <p>Oi, meu bem! Eu fiz esse site (quase) sozinho, o senhor busca profunda me deu uma força. Fiz esse site como um presente de dia dos namorados, já que você é uma namorada muito especial pra mim!! Espero que aproveite ele e se divirta bastante com os quebra-cabeças que fiz. Tem uma surpresinha no final, e pra alcançar ela você precisa de um código de 4 dígitos. O primeiro dígito está perdido no tempo. O segundo digito aparecerá após você provar seu conhecimento. O terceiro, está escondido nas sombras. O quarto dígito provém de um enigma. Boa sorte!! Te amooooo!!!!!! ❤❤❤❤</p>
+        </div>
+        <br><br>
+        <!-- Timeline -->
+        <div class="timeline">
+            <button class="timeline-button" onclick="openPopup(1)">28/05/2024</button>
+            <button class="timeline-button" onclick="openPopup(2)">24/06/2024</button>
+            <button class="timeline-button" onclick="openPopup(3)">05/07/2024</button>
+            <button class="timeline-button" onclick="openPopup(4)">14/07/2024</button>
+            <button class="timeline-button" onclick="openPopup(5)">06/10/2024</button>
+            <button class="timeline-button" onclick="openPopup(6)">14/11/2024</button>
+            <button class="timeline-button" onclick="openPopup(7)">31/12/2024</button>
+            <button class="timeline-button" onclick="openPopup(8)">23/03/2025</button>
+            <button class="timeline-button" onclick="openPopup(9)">??/??/????</button>
+        </div>
+        
+        <!-- Popups -->
+        <div id="popup1" class="popup">
+            <div class="popup-content">
+                <img src="Shopping.jpeg" alt="Momento 1" class="popup-image">
+                <div class="popup-text">
+                    <h2>Primeiro encontro</h2>
+                    <p>Apesar do dia em si ter sido muito comum, o nosso primeiro encontro foi muito especial do nosso jeito! Comemos um romântico Taco Bell, vimos um filme horroroso no qual dormi no meio e escutamos muita música e conversamos muito. Que dia divertido!<br><b>Música do dia: intro (end of the world)</b></p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="popup2" class="popup">
+            <div class="popup-content">
+                <img src="Parque.jpeg" alt="Momento 2" class="popup-image">
+                <div class="popup-text">
+                    <h2>Segundo encontro</h2>
+                    <p>Pra mim esse foi um dos encontros mais fofos. Tenho ele guardado em um lugar muito especial no meu coração. Temos muitos registros desse dia e é muito engraçado ver como a gente interagia, sem ter intimidade. Nunca fui tão feliz.<br><b>Música do dia: BIRDS OF A FEATHER</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup3" class="popup">
+            <div class="popup-content">
+                <img src="Beijo.jpeg" alt="Momento 3" class="popup-image">
+                <div class="popup-text">
+                    <h2>Primeira vez na minha casa</h2>
+                    <p>Esse dia foi muitoooo legal. A gente fez as trends do tiktok que você tinha salvo, e tiramos essas fotos cheias de beijinhos na minha cara. Criamos muita intimidade e foi muito aconchegante te levar para o meu lar pela primeira vez.<br><b>Música do dia: Pasilyo</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup4" class="popup">
+            <div class="popup-content">
+                <img src="Pedido.jpeg" alt="Momento 4" class="popup-image">
+                <div class="popup-text">
+                    <h2>Pedido de namoro</h2>
+                    <p>Que dia do caralho. Não só foi ridiculamente divertido ir para o Hopi Hari com seus amigos, ainda mais vazio, como também eu estava MUUUUUUUITO nervoso. Nossa senhora, ficava com medo do pedido dar errado ou de alguém furtar a aliança. No final, tudo deu quase certo (não foi na roda gigante 😭). <br><b>Música do dia: Clarão</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup5" class="popup">
+            <div class="popup-content">
+                <img src="Aniversario.jpeg" alt="Momento 5" class="popup-image">
+                <div class="popup-text">
+                    <h2>Seu aniversário</h2>
+                    <p>Depois de ter comemorado seu aniversário com a família (estava ridiculamente linda), comemoramos com os amigos e família naquela pizzaria deliciosa! Foi bem divertido, adorei tudo desse dia. Tudo estava perfeito, até mesmo o bolo no qual você tanto reclamou. (Também estava ridiculamente linda esse dia). <br><b>Música do dia: There's Nothing Holdin' Me Back</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup6" class="popup">
+            <div class="popup-content">
+                <img src="Paulista.jpeg" alt="Momento 6" class="popup-image">
+                <div class="popup-text">
+                    <h2>Passeio na Paulista</h2>
+                    <p>Visitamos todo canto possível da Paulista, foi muito legaaal!!! Andamos bastante e quase perdi minhas pernas de tanto andar. Gostei muito do mirante do Sesc, foi minha parte predileta! <br><b>Música do dia: Dia Especial</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup7" class="popup">
+            <div class="popup-content">
+                <img src="Ano novo.jpeg" alt="Momento 7" class="popup-image">
+                <div class="popup-text">
+                    <h2>Ubatuba</h2>
+                    <p>Não poderia deixar faltando a nossa viagem para Ubatuba. Primeira vez que viajamos juntos! Nos divertimos na medida do possível, mas ainda sim, achei uma experiência incrível! Lembro que lutamos muito na Blém para podermos nos bancar. O Ano Novo e o aquário foram meus dias favoritos. <br><b>Música do dia: Chuva de Arroz</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup8" class="popup">
+            <div class="popup-content">
+                <img src="Zoo.jpeg" alt="Momento 8" class="popup-image">
+                <div class="popup-text">
+                    <h2>Zoológico de São Paulo</h2>
+                    <p>Sinceramente, gostaria de que esse dia tivesse sido apenas entre nós dois, mas de qualquer forma, foi muito bom!! Foi uma experiência melhor até que o aquário. Adoro a natureza, ainda mais explorar ela com minha namorada lindaaa!!! Iremos ao Aquário de SP em breve. <br><b>Música do dia: There Is a Light That Never Goes Out</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup9" class="popup">
+            <div class="popup-content">
+                <img src="Spoiler.jpeg" alt="Momento 9" class="popup-image">
+                <div class="popup-text">
+                    <h2>Dia do Casamento</h2>
+                    <p>Tive que censurar essa parte para que nós não tomemos spoiler de quando e nem de como vai ser. Esse muito provavelmente será o dia mais feliz das nossas vidas, e me enche de alegria de saber que ele ainda está por vir. Obrigado por acompanhar o resumo da nossa linha do tempo. 1.</p>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        
+        <!-- Quiz -->
+        <!-- Quiz Container -->
+<div class="quiz-container">
+    <!-- Pergunta 1 (inicialmente visível) -->
+    <div id="quiz-question1" class="quiz-question" style="display: block;">
+        <h2>Pergunta 1</h2>
+        <p>Que dia que nos conhecemos pela primeira vez?</p>
+    </div>
+    
+    <!-- Perguntas 2-5 (inicialmente ocultas) -->
+    <div id="quiz-question2" class="quiz-question" style="display: none;">
+        <h2>Pergunta 2</h2>
+        <p>Qual sua parte favorita pra mim, e qual minha favorita pra você, respectivamente?</p>
+    </div>
+    
+    <div id="quiz-question3" class="quiz-question" style="display: none;">
+        <h2>Pergunta 3</h2>
+        <p>Qual música do Luan Santana eu sempre choro pois penso na gente?</p>
+    </div>
+    
+    <div id="quiz-question4" class="quiz-question" style="display: none;">
+        <h2>Pergunta 4</h2>
+        <p>Qual o nome completo do homem aranha?</p>
+    </div>
+    
+    <div id="quiz-question5" class="quiz-question" style="display: none;">
+        <h2>Pergunta 5</h2>
+        <p>Eu te amo!!! Você me ama???</p>
+    </div>
+    
+    <!-- Opções do Quiz (serão alteradas dinamicamente) -->
+    <div class="quiz-options">
+        <!-- As opções serão preenchidas pelo JavaScript -->
+    </div>
+    
+    <!-- Botão de próxima pergunta -->
+    <button id="next-button" class="next-button" onclick="nextQuestion()" style="display: none;">Próxima Pergunta</button>
+    
+    <!-- Mensagem final (inicialmente oculta) -->
+    <div id="quiz-result" class="quiz-result" style="display: none;">
+        <h1>Parabéns! Você completou o quiz! 4.</h1>
+    </div>
+</div>
+<br><br>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="separator"></div>
+            
+            <p>----- .---- ----- ----- ----- ----- ----- .---- / ----- .---- .---- ----- ----- .---- .---- .---- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- .---- .---- .---- ----- ----- .---- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- .---- ----- ----- ----- .---- / ----- .---- .---- .---- ----- .---- ----- .---- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- ----- .---- .---- / ----- .---- .---- ----- .---- ----- ----- ----- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- .---- .---- ----- ----- .---- .---- .---- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- .---- .---- .---- ----- .---- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- .---- .---- .---- ----- ----- ----- .---- / ----- .---- .---- .---- ----- .---- ----- .---- / ----- .---- .---- ----- .---- ----- ----- .---- / ----- ----- .---- ----- .---- .---- ----- ----- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- .---- ----- ----- .---- ----- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- .---- .---- .---- ----- ----- .---- .---- / ----- .---- .---- .---- ----- .---- ----- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- .---- ----- .---- ----- .---- / ----- .---- .---- ----- .---- .---- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- .---- ----- .---- ----- .---- / ----- .---- .---- ----- .---- .---- ----- ----- / ----- .---- .---- .---- ----- .---- ----- ----- / ----- .---- .---- ----- .---- ----- ----- .---- / ----- .---- .---- ----- .---- .---- ----- .---- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- .---- .---- ----- .---- .---- .---- ----- / ----- .---- .---- ----- .---- ----- ----- .---- / ----- .---- .---- ----- ----- .---- .---- .---- / ----- .---- .---- ----- .---- .---- ----- .---- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- ----- .---- .---- .---- ----- .---- ----- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- ----- .---- ----- ----- ----- .---- ----- / ----- .---- ----- ----- ----- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- ----- .---- .---- / ----- .---- .---- ----- .---- ----- ----- .---- / ----- .---- .---- ----- ----- .---- .---- ----- / ----- .---- .---- .---- ----- ----- .---- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- .---- .---- ----- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- .---- .---- ----- .---- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- .---- .---- .---- ----- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- .---- .---- ----- .---- .---- ----- .---- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- .---- .---- ----- ----- .---- ----- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- .---- .---- ----- .---- .---- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- .---- ----- ----- ----- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- .---- .---- ----- .---- .---- ----- .---- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- .---- .---- ----- .---- .---- .---- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- .---- .---- ----- ----- .---- .---- .---- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- .---- .---- ----- .---- .---- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- ----- ----- .---- ----- .---- ----- / .---- .---- .---- .---- .---- ----- .---- ----- / ----- .---- .---- ----- .---- .---- ----- ----- / ----- .---- .---- ----- .---- ----- ----- .---- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- ----- ----- ----- ----- .---- .---- / .---- .---- .---- ----- .---- ----- ----- .---- / ----- .---- .---- .---- ----- ----- .---- .---- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- .---- .---- .---- ----- ----- .---- ----- / ----- ----- .---- ----- ----- ----- .---- ----- / ----- ----- .---- ----- .---- .---- .---- ----- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- ----- ----- ----- .---- ----- .---- / ----- .---- .---- ----- .---- .---- ----- ----- / ----- .---- .---- .---- .---- ----- ----- .---- / ----- .---- .---- .---- ----- ----- .---- ----- / ----- .---- .---- ----- .---- .---- ----- ----- / ----- .---- .---- ----- ----- ----- .---- .---- / ----- .---- .---- ----- .---- .---- ----- ----- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- .---- ----- ----- / ----- .---- .---- .---- ----- ----- ----- ----- / ----- .---- .---- .---- ----- .---- .---- .---- / ----- .---- .---- .---- ----- ----- ----- ----- / ----- .---- .---- ----- .---- .---- .---- .---- / ----- .---- .---- .---- .---- ----- .---- ----- / ----- .---- .---- .---- .---- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- ----- .---- ----- .---- .---- .---- .---- / ----- ----- .---- ----- .---- .---- .---- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- ----- ----- ----- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- .---- .---- ----- ----- ----- .---- .---- / ----- .---- .---- ----- .---- ----- ----- ----- / ----- .---- .---- ----- ----- ----- ----- .---- / ----- .---- .---- .---- ----- .---- .---- ----- / ----- .---- .---- ----- ----- .---- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / .---- .---- .---- ----- .---- ----- ----- .---- / ----- ----- .---- ----- ----- ----- ----- ----- / ----- ----- .---- .---- ----- ----- ----- .---- / ----- ----- .---- .---- ----- ----- ----- .---- / ----- ----- .---- ----- .---- .---- .---- ----- /</p>
+            
+            <div class="separator"></div>
+            <br><br>
+            
+            <div class="contact-form">
+                <h3>Digite abaixo o código: </h3>
+                <div class="form-group">
+                    <input type="text" id="secret-code" class="form-input" placeholder="Digite o código">
+                    <button class="submit-button" onclick="checkCode()">Enviar</button>
+                </div>
+                <div id="code-error" class="error-message">Código errado</div>
+            </div>
+        </div>
+        
+        <!-- Easter egg -->
+        <div class="hidden-number">0</div>
+    </div>
+
+    <script>
+        // Timeline popups
+        function openPopup(num) {
+            // Close all popups first
+            const popups = document.querySelectorAll('.popup');
+            popups.forEach(popup => {
+                popup.style.display = 'none';
+            });
+            
+            // Open selected popup
+            document.getElementById(`popup${num}`).style.display = 'block';
+        }
+        
+        // Variáveis do quiz
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        const correctAnswers = [1, 3, 1, 2, 4]; // Ordem correta: 1, 3, 1, 2, 4
+        
+        // Perguntas e opções
+        const questions = [
+            {
+                question: "Que dia que nos conhecemos pela primeira vez?",
+                options: ["28/10/2023", "31/10/2023", "22/10/2023", "25/10/2023"],
+                correct: 1
+            },
+            {
+                question: "Qual sua parte favorita pra mim, e qual minha favorita pra você, respectivamente?",
+                options: ["Orelha/Sobrancelha", "Boca/Orelha", "Olhos/Sobrancelha", "Cu/Pito"],
+                correct: 3
+            },
+            {
+                question: "Qual música do Luan Santana eu sempre choro pois penso na gente?",
+                options: ["Amar não é pecado", "Tudo que você quiser", "Te esperando", "Chuva de Arroz"],
+                correct: 1
+            },
+            {
+                question: "Qual o nome completo do homem aranha?",
+                options: ["Peter Parker", "Peter Benjamin Parker", "Peter Parker da Silva", "Peter Harold Parker"],
+                correct: 2
+            },
+            {
+                question: "Eu te amo!!! Você me ama???",
+                options: ["Sim (não)", "Talvez (talvez)", "sim.", "TI AMUUUUUUU"],
+                correct: 4
+            }
+        ];
+
+        // Inicializa o quiz
+        function initializeQuiz() {
+            updateQuestion();
+        }
+
+        // Atualiza a pergunta e opções
+        function updateQuestion() {
+            const questionData = questions[currentQuestion - 1];
+            
+            // Atualiza o texto da pergunta
+            document.querySelector(`#quiz-question${currentQuestion} p`).textContent = questionData.question;
+            
+            // Atualiza as opções
+            const optionsContainer = document.querySelector('.quiz-options');
+            optionsContainer.innerHTML = ''; // Limpa as opções anteriores
+            
+            questionData.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'quiz-button';
+                button.textContent = option;
+                button.onclick = function() { checkAnswer(index + 1); };
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const buttons = document.querySelectorAll('.quiz-button');
+            const correctOption = questions[currentQuestion - 1].correct;
+            
+            if (selectedOption === correctOption) {
+                // Resposta correta
+                buttons[selectedOption - 1].classList.add('correct');
+                document.getElementById('next-button').style.display = 'block';
+                
+                // Marca todos os outros botões errados como vermelhos (opcional)
+                buttons.forEach((button, index) => {
+                    if (index + 1 !== correctOption && !button.classList.contains('wrong')) {
+                        button.classList.add('wrong');
+                    }
+                });
+            } else {
+                // Resposta errada
+                buttons[selectedOption - 1].classList.add('wrong');
+            }
+        }
+
+        // Avança para a próxima pergunta
+        function nextQuestion() {
+            // Esconde a pergunta atual
+            document.getElementById(`quiz-question${currentQuestion}`).style.display = 'none';
+            
+            // Reseta os botões (serão recriados na próxima pergunta)
+            
+            // Esconde o botão de próxima
+            document.getElementById('next-button').style.display = 'none';
+            
+            // Verifica se é a última pergunta
+            if (currentQuestion === totalQuestions) {
+                document.getElementById('quiz-result').style.display = 'block';
+                document.querySelector('.quiz-options').style.display = 'none';
+                return;
+            }
+            
+            // Mostra a próxima pergunta
+            currentQuestion++;
+            document.getElementById(`quiz-question${currentQuestion}`).style.display = 'block';
+            
+            // Atualiza as opções para a nova pergunta
+            updateQuestion();
+        }
+        
+        // Code verification
+        function checkCode() {
+            const code = document.getElementById('secret-code').value;
+            const errorMsg = document.getElementById('code-error');
+            
+            if (code === '1407') {
+                window.location.href = 'resposta.html';
+            } else {
+                errorMsg.style.display = 'block';
+                setTimeout(() => {
+                    errorMsg.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+        // Inicializa o quiz quando a página carregar
+        window.onload = initializeQuiz;
+    </script>
+</body>
+</html>
